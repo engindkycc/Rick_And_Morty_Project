@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TaskFive</string>
+    <string name="characterStatus">Status:</string>
+    <string name="characterSpecy">Specy:</string>
+    <string name="characterGender">Gender:</string>
+    <string name="characterOrigin">Origin:</string>
+    <string name="characterLocation">Location:</string>
+    <string name="characterEpisodes">Episodes:</string>
+    <string name="characterCreated">Created at (in APİ):</string>
+</resources>
