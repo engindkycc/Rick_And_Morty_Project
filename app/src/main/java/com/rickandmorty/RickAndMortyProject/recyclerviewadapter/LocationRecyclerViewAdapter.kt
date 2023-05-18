@@ -5,6 +5,9 @@ import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.rickandmorty.RickAndMortyProject.activities.MainActivity
 import com.rickandmorty.RickAndMortyProject.api.OnClickInterface
@@ -13,10 +16,12 @@ import com.rickandmorty.RickAndMortyProject.databinding.LocationRecyclerRowBindi
 import com.rickandmorty.RickAndMortyProject.models.Result
 
 
+
 @Suppress("DEPRECATION")
 class LocationRecyclerViewAdapter(context: MainActivity, onClickHorizontal: OnClickInterface) :
     RecyclerView.Adapter<LocationRecyclerViewAdapter.HorizontalViewHolder>() {
     var single_selection_position = -1
+
 
     // List of characters to display
     private var list = ArrayList<Result>()
@@ -59,6 +64,7 @@ class LocationRecyclerViewAdapter(context: MainActivity, onClickHorizontal: OnCl
             single_selection_position = adapterPosition
             notifyItemChanged(single_selection_position)
             onClick.onClick(list.get(adapterPosition))
+
 
         }
 
