@@ -13,7 +13,6 @@
         android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textAlignment="center"
         android:gravity="center"
         android:background="@drawable/cardview_shape"/>

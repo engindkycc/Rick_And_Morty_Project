@@ -1,4 +1,4 @@
-package com.rickandmorty.RickAndMortyProject.activities
+package com.rickandmorty.rickandmortyproject.activities
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -8,17 +8,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.rickandmorty.RickAndMortyProject.R
-import com.rickandmorty.RickAndMortyProject.api.OnClickInterface
-import com.rickandmorty.RickAndMortyProject.api.RetrofitInstance
-import com.rickandmorty.RickAndMortyProject.databinding.ActivityMainBinding
-import com.rickandmorty.RickAndMortyProject.models.Character
-import com.rickandmorty.RickAndMortyProject.models.LocationResponse
-import com.rickandmorty.RickAndMortyProject.models.Result
+
+import com.rickandmorty.rickandmortyproject.R
+import com.rickandmorty.rickandmortyproject.api.OnClickInterface
+import com.rickandmorty.rickandmortyproject.api.RetrofitInstance
+import com.rickandmorty.rickandmortyproject.databinding.ActivityMainBinding
+import com.rickandmorty.rickandmortyproject.models.Character
+import com.rickandmorty.rickandmortyproject.models.LocationResponse
+import com.rickandmorty.rickandmortyproject.models.Result
 
 
-import com.rickandmorty.RickAndMortyProject.recyclerviewadapter.LocationRecyclerViewAdapter
-import com.rickandmorty.RickAndMortyProject.recyclerviewadapter.CharacterRecyclerViewAdapter
+import com.rickandmorty.rickandmortyproject.recyclerviewadapter.LocationRecyclerViewAdapter
+import com.rickandmorty.rickandmortyproject.recyclerviewadapter.CharacterRecyclerViewAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity(), OnClickInterface {
     private lateinit var horizontalAdapter: LocationRecyclerViewAdapter
     private lateinit var verticalAdapter: CharacterRecyclerViewAdapter
     private var isCompleted: Boolean = false
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,8 +72,8 @@ class MainActivity : AppCompatActivity(), OnClickInterface {
 
         if (!isCompleted && !isLoading && (visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0) {
 
-                    isLoading = true;
-                    currentPage++;
+                    isLoading = true
+                    currentPage++
                     RetrofitInstance.api.getLocations(currentPage)
                         .enqueue(object : Callback<LocationResponse> {
                             override fun onResponse(
@@ -90,7 +91,7 @@ class MainActivity : AppCompatActivity(), OnClickInterface {
 
                                 if (response.code() == 404) {
 
-                                    isCompleted = true;
+                                    isCompleted = true
 
                                 }
 
@@ -142,17 +143,17 @@ class MainActivity : AppCompatActivity(), OnClickInterface {
 
     override fun onClick(location: Result) {
         if (location.residents.isEmpty()) {
-            var emptyList: ArrayList<Character> = arrayListOf()
+            val emptyList: ArrayList<Character> = arrayListOf()
             verticalAdapter.setData(emptyList)
-            return;
+            return
         }
 
-        var idList = "";
+        var idList = ""
         for (resident in location.residents) {
             idList += resident.split("/").last() + ","
         }
         idList = idList.substring(0, idList.lastIndex)
-        idList = "[$idList]";
+        idList = "[$idList]"
         RetrofitInstance.api.getCharacters(idList).enqueue(object : Callback<ArrayList<Character>> {
             override fun onResponse(
                 call: Call<ArrayList<Character>>,

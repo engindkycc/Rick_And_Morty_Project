@@ -1,8 +1,8 @@
-package com.rickandmorty.RickAndMortyProject.api
+package com.rickandmorty.rickandmortyproject.api
 
-import com.rickandmorty.RickAndMortyProject.models.Character
-import com.rickandmorty.RickAndMortyProject.models.CharacterDetail
-import com.rickandmorty.RickAndMortyProject.models.LocationResponse
+import com.rickandmorty.rickandmortyproject.models.Character
+import com.rickandmorty.rickandmortyproject.models.CharacterDetail
+import com.rickandmorty.rickandmortyproject.models.LocationResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

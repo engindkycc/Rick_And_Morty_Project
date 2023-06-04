@@ -1,23 +1,20 @@
-package com.rickandmorty.RickAndMortyProject.recyclerviewadapter
+package com.rickandmorty.rickandmortyproject.recyclerviewadapter
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.rickandmorty.RickAndMortyProject.activities.MainActivity
-import com.rickandmorty.RickAndMortyProject.api.OnClickInterface
-import com.rickandmorty.RickAndMortyProject.R
-import com.rickandmorty.RickAndMortyProject.databinding.LocationRecyclerRowBinding
-import com.rickandmorty.RickAndMortyProject.models.Result
+import com.rickandmorty.rickandmortyproject.activities.MainActivity
+import com.rickandmorty.rickandmortyproject.api.OnClickInterface
+import com.rickandmorty.rickandmortyproject.R
+import com.rickandmorty.rickandmortyproject.databinding.LocationRecyclerRowBinding
+import com.rickandmorty.rickandmortyproject.models.Result
 
 
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "PropertyName")
 class LocationRecyclerViewAdapter(context: MainActivity, onClickHorizontal: OnClickInterface) :
     RecyclerView.Adapter<LocationRecyclerViewAdapter.HorizontalViewHolder>() {
     var single_selection_position = -1
@@ -42,6 +39,7 @@ class LocationRecyclerViewAdapter(context: MainActivity, onClickHorizontal: OnCl
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addAll(list: List<Result>) {
         this.list.addAll(list)
         notifyDataSetChanged()
@@ -63,7 +61,7 @@ class LocationRecyclerViewAdapter(context: MainActivity, onClickHorizontal: OnCl
             notifyItemChanged(single_selection_position)
             single_selection_position = adapterPosition
             notifyItemChanged(single_selection_position)
-            onClick.onClick(list.get(adapterPosition))
+            onClick.onClick(list[adapterPosition])
 
 
         }

@@ -1,5 +1,6 @@
-package com.rickandmorty.RickAndMortyProject.activities
+package com.rickandmorty.rickandmortyproject.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +8,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
 import android.widget.TextView
-import com.rickandmorty.RickAndMortyProject.R
-import com.rickandmorty.RickAndMortyProject.databinding.ActivitySplashScreenBinding
+import com.rickandmorty.rickandmortyproject.R
+import com.rickandmorty.rickandmortyproject.databinding.ActivitySplashScreenBinding
 
+@Suppress("DEPRECATION")
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
 
         private val splashScreen = 5000
@@ -17,6 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
         private lateinit var sharedEditor: SharedPreferences.Editor
         private lateinit var binding : ActivitySplashScreenBinding
 
+        @SuppressLint("SetTextI18n")
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)

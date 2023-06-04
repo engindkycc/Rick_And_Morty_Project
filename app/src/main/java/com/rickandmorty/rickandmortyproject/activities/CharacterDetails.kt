@@ -1,4 +1,4 @@
-package com.rickandmorty.RickAndMortyProject.activities
+package com.rickandmorty.rickandmortyproject.activities
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.rickandmorty.RickAndMortyProject.api.RetrofitInstance
-import com.rickandmorty.RickAndMortyProject.databinding.ActivityCharacterDetailsBinding
-import com.rickandmorty.RickAndMortyProject.models.CharacterDetail
+import com.rickandmorty.rickandmortyproject.api.RetrofitInstance
+import com.rickandmorty.rickandmortyproject.databinding.ActivityCharacterDetailsBinding
+import com.rickandmorty.rickandmortyproject.models.CharacterDetail
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +36,7 @@ class CharacterDetails : AppCompatActivity() {
 
 
                                                 val episodeUrls = character.episode
-                                                var ids: String = ""
+                                                var ids = ""
 
                                                 for (url in episodeUrls){
 
@@ -44,20 +44,20 @@ class CharacterDetails : AppCompatActivity() {
                                                         val episodeId = (url.split("/"))[5]
                                                         ids += episodeId
                                                         if(episodeUrls.last() != url){
-                                                                ids += ", ";
+                                                                ids += ", "
 
                                                         }
 
                                                 }
 
-                                                binding.getcharacterEpisodes?.text = ids
-                                                binding.characterName?.text = character.name
-                                                binding.getcharacterStatus?.text = character.status
-                                                binding.getcharacterSpecy?.text = character.species
-                                                binding.getcharacterGender?.text = character.gender
-                                                binding.getcharacterOrigin?.text = character.origin.name
-                                                binding.getcharacterLocation?.text = character.location.name
-                                                binding.getcharacterCreated?.text = character.created
+                                                binding.getcharacterEpisodes.text = ids
+                                                binding.characterName.text = character.name
+                                                binding.getcharacterStatus.text = character.status
+                                                binding.getcharacterSpecy.text = character.species
+                                                binding.getcharacterGender.text = character.gender
+                                                binding.getcharacterOrigin.text = character.origin.name
+                                                binding.getcharacterLocation.text = character.location.name
+                                                binding.getcharacterCreated.text = character.created
                                                 Glide.with(this@CharacterDetails).load(character.image).into(binding.characterImage)
 
                                         }
@@ -76,8 +76,5 @@ class CharacterDetails : AppCompatActivity() {
                 })
 
         }
-
-
-
 
     }
